@@ -26,9 +26,7 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
-app.get('/', (req, res) => {
-    res.send('success')
-})
+app.get('/', (req, res) => { res.send('success') })
 
 //! SIGN IN FUNTION
 app.post('/signin', (req, res) => { signin.handleSignIn(req, res, db, bcrypt) })
@@ -38,12 +36,9 @@ app.post('/register', (req, res) => { register.handleRegister(req, res, db, bcry
 
 //! PROFILE FUNTIONS
 app.get('/profile/:id', (req, res) => { profile.handleProfileGet(req, res, db) })
-
 app.delete('/profile/:id', (req, res) => { profile.handleProfileDelete(req, res, db) })
 
 //!IMAGE FUNCTION
 app.put('/image', (req, res) => { image.handleImage(req, res, db) })
 
-app.listen(3000, () => {
-    console.log('app is running on port 3000')
-})
+app.listen(3000, () => { console.log('app is running on port 3000') })
