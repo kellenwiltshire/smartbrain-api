@@ -4,9 +4,9 @@ const handleProfileGet = (req, res, db) => {
     .where({id})
     .then(user => {
         if(user.length){
-            res.json(user[0])
+           return res.json(user[0])
         } else {
-            res.status(400).json('not found')
+           return res.status(400).json('not found')
         }
     })
     .catch(err => res.status(400).json('Error getting user'))
